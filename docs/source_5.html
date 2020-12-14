@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>Glass - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">Glass</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_4.html">Previous</a><br><a href="source_6.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 1 - Understanding</b>
+<br>
+
+<br>
+Understand the command &quot;<font color=#000080>ask</font>&quot; as something new. Understand the command &quot;<font color=#000080>tell</font>&quot; as something new. Understand the command &quot;<font color=#000080>say</font>&quot; as something new. Understand the command &quot;<font color=#000080>speak</font>&quot; as something new. Understand the command &quot;<font color=#000080>shout</font>&quot; as something new. Understand the command &quot;<font color=#000080>answer</font>&quot; as something new. Understand the command &quot;<font color=#000080>scream</font>&quot; as something new. 
+<br>
+
+<br>
+Understand &quot;<font color=#000080>mention no</font>&quot; as saying no. Understand &quot;<font color=#000080>mention yes</font>&quot; as saying yes. Understand &quot;<font color=#000080>mention sorry</font>&quot; or &quot;<font color=#000080>apologize</font>&quot; as saying sorry. Understand &quot;<font color=#000080>refuse</font>&quot; or &quot;<font color=#000080>disagree</font>&quot; as saying no. Understand &quot;<font color=#000080>approve</font>&quot; or &quot;<font color=#000080>agree</font>&quot; as saying yes.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>mention awk/awwk/awwwk/squawk</font>&quot; as squawking.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>ask about [any subject]</font>&quot; as mentioning. Understand &quot;<font color=#000080>tell about [any subject]</font>&quot; as mentioning. Understand &quot;<font color=#000080>a [any subject]</font>&quot; as mentioning. Understand &quot;<font color=#000080>t [any subject]</font>&quot; as mentioning. Understand &quot;<font color=#000080>answer [any subject]</font>&quot; as mentioning.
+<br>
+
+<br>
+<font color=#404040>[Just for fun, let's make the game understand a wide range of parrot-appropriate squawkings, too:</font>]
+<br>
+
+<br>
+Understand &quot;<font color=#000080>mention [any subject]</font>&quot; as mentioning. Understand the commands &quot;<font color=#000080>caw</font>&quot; and &quot;<font color=#000080>croak</font>&quot; and &quot;<font color=#000080>squawk</font>&quot; and &quot;<font color=#000080>awk</font>&quot; and &quot;<font color=#000080>awwk</font>&quot; and &quot;<font color=#000080>speak</font>&quot; and &quot;<font color=#000080>say</font>&quot; and &quot;<font color=#000080>talk</font>&quot; and &quot;<font color=#000080>shout</font>&quot; and &quot;<font color=#000080>scream</font>&quot; and &quot;<font color=#000080>shriek</font>&quot; and &quot;<font color=#000080>yell</font>&quot; and &quot;<font color=#000080>screech</font>&quot; as &quot;<font color=#000080>mention</font>&quot;. 
+<br>
+
+<br>
+<font color=#404040>[Now having given the parrot this range of expression, let's make it so that we can print that exact text back later:</font>]
+<br>
+To say exact verb:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(- print (address) verb_word; -)
+<br>
+
+<br>
+<font color=#404040>[But of course, if the player uses t or a the results will come out a bit strange. Therefore:</font>]
+<br>
+After reading a command: if the player's command includes &quot;<font color=#000080>t </font>&quot;, replace the matched text with &quot;<font color=#000080>say </font>&quot;; if the player's command includes &quot;<font color=#000080>a </font>&quot;, replace the matched text with &quot;<font color=#000080>say </font>&quot;; if the player's command includes &quot;<font color=#000080>mention </font>&quot;, replace the matched text with &quot;<font color=#000080>say </font>&quot;; if the player's command includes &quot;<font color=#000080>speak </font>&quot;, replace the matched text with &quot;<font color=#000080>say </font>&quot;.
+<br>
+
+<br>
+Instead of asking someone to try mentioning something: try mentioning the noun instead.  
+<br>
+
+<br>
+<font color=#404040>[Here we handle the error case wherein someone does try to speak to a specific individual:</font>]  
+<br>
+
+<br>
+Understand &quot;<font color=#000080>ask [someone] about [text]</font>&quot; as directed speech (with nouns reversed). Understand &quot;<font color=#000080>tell [someone] about [text]</font>&quot; as directed speech (with nouns reversed). Understand &quot;<font color=#000080>answer [text] to [someone]</font>&quot; as directed speech.
+<br>
+
+<br>
+Instead of answering someone that something: say &quot;<font color=#000080>You can only squawk things for everyone to hear.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<font color=#404040>[And finally, to cover the case where the player types something like SQUAWK &quot;KING&quot;:</font>]
+<br>
+
+<br>
+Include Punctuation Removal by Emily Short.
+<br>
+
+<br>
+After reading a command: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;remove stray punctuation; <font color=#404040><sup><a href="#note1">[1]</a></sup></font>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if the player's command includes &quot;<font color=#000080>&amp;</font>&quot;, replace the matched text with &quot;<font color=#000080>and</font>&quot;.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 
+<br>
+
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><p><i>Note</i><p>
+<A name="note1"><font color=#404040>[1].  A phrase provided by the foregoing extension, which removes all quotation marks, exclamation points, and question marks from input before attempting to parse</font><p>
+</font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

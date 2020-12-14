@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>Glass - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">Glass</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_5.html">Previous</a><br><a href="source_7.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 2 - Correcting Less-useful Input</b>
+<br>
+
+<br>
+Directed speech is an action applying to one topic and one thing.
+<br>
+
+<br>
+Carry out directed speech: say &quot;<font color=#000080>You can only squawk things for everyone to hear.</font>&quot;
+<br>
+
+<br>
+Understand &quot;<font color=#000080>squawk</font>&quot; as squawking. Squawking is an action applying to nothing. Carry out squawking: do nothing. Report squawking: say &quot;<font color=#000080>'[awwk]!' you squawk.</font>&quot;
+<br>
+
+<br>
+<font color=#404040>[And now a refinement. Suppose the player tries to mention something that isn't on our short list of topics? We don't want &quot;you can't see any such thing&quot; or even &quot;that noun makes no sense...&quot; as a result. So we make a catch-all response for this situation:</font>]
+<br>
+ 
+<br>
+Understand &quot;<font color=#000080>mention [text]</font>&quot; or &quot;<font color=#000080>ask about [text]</font>&quot; or &quot;<font color=#000080>tell about [text]</font>&quot; or &quot;<font color=#000080>a [text]</font>&quot; or &quot;<font color=#000080>t [text]</font>&quot; as jungle crying.
+<br>
+
+<br>
+Jungle crying is an action applying to one topic.
+<br>
+
+<br>
+Instead of jungle crying a topic listed in the Table of Reactions: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if there is a reaction rule entry
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abide by reaction rule entry;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry][paragraph break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Carry out jungle crying:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;do nothing.
+<br>
+
+<br>
+Report jungle crying:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You stumble over that unfamiliar term and it just comes out a birdlike cry.</font>&quot;
+<br>
+
+<br>
+<b>Table of Awwkwardness</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>response</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>Awwk</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>Awk</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>Awwwk</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>Squawk</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>Squaw-awk</font>&quot;</td></tr>
+</table>
+<br>
+To say awwk:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;choose a random row in the table of Awwkwardness;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry]</font>&quot;.
+<br>
+
+<br>
+Asking it about the subject is an action applying to two things.
+<br>
+
+<br>
+Carry out asking it about the subject: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try mentioning the second noun.
+<br>
+
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"></font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

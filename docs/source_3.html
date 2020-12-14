@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>Glass - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">Glass</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_2.html">Previous</a><br><a href="source_4.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 3 - Non-player Goal-seeking</b>
+<br>
+
+<br>
+<font color=#404040>[And here we provide the non-player characters with the instructions for how to make conversational &quot;moves&quot;.</font>]
+<br>
+
+<br>
+<font color=#404040>[At different scenes of the game, we will be using different conversation sets, so we need to account for this as well:</font>]
+<br>
+
+<br>
+Conversation set is a table-name that varies. The conversation set is Table of Prologue Remarks.
+<br>
+
+<br>
+Definition: a subject is fruitful if it produces conversation.
+<br>
+
+<br>
+<font color=#404040>[This rather bare-looking routine runs through the current conversation table and checks to see whether a given subject would be interested if someone selected it.</font>]
+<br>
+
+<br>
+To decide whether (next subject - a subject) produces conversation:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through conversation set
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the starting entry is current subject or starting entry is blank 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the final entry is next subject or final entry is blank, yes;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;no. 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<font color=#404040>[And here we look through the conversation set to see if we can find some appropriate conversation for the change of subject that just occurred, and (if so) print the dialogue.</font>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+To relate (initial subject - a subject) with (next subject - a subject), directly or pausing first:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through conversation set
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the starting entry is initial subject or starting entry is blank 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if the final entry is next subject or final entry is blank
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if pausing first, say &quot;<font color=#000080>There is a long thoughtful silence. </font>&quot;; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[comment entry][paragraph break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blank out the whole row;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat. 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+A person can be active or passive. <font color=#404040><sup><a href="#note1">[1]</a></sup></font>
+<br>
+
+<br>
+Every turn when the old lady is active: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if Theodora Endgame is happening, rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if Lucinda Endgame is happening, rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let pause be &quot;<font color=#000080>blank</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let segue be the next step via the suggestion relation from the current subject to the target subject;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if segue is a subject
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while segue is not the target subject and segue is not fruitful
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let segue be the next step via the suggestion relation from the segue to the target subject;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let pause be &quot;<font color=#000080>There's a long, thoughtful sort of pause. </font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end while;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if pause is not &quot;<font color=#000080>blank</font>&quot;, 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relate the current subject with the segue, pausing first;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise relate the current subject with the segue, directly;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;change last subject to current subject;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;change current subject to segue;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;otherwise; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;change the current subject to last subject;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Fitting has happened
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;make no decision;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end if;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>There's an uncomfortable silence as everyone tries to think of a sensible direction for the conversation to take from here.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'Mm, we were speaking of [current subject],' says [a random visible person who is not the player].</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Every turn: now the old lady is active. <font color=#404040><sup><a href="#note2">[2]</a></sup></font>
+<br>
+
+<br>
+
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><p><i>Notes</i><p>
+<A name="note1"><font color=#404040>[1].  This is just a marker to keep track of whether the old lady (or any of the others) have already spoken during a turn; if so, we don't want them moving the dialogue on their own. One of my discoveries in previous conversation games is that it is usually best to limit non-player characters to one piece of dialogue behavior per turn -- either responding to something the player said OR advancing an idea of their own. If one allows them to do both, the conversation is controlled primarily by the game rather than the player, and many players find this frustrating.</font><p>
+<A name="note2"><font color=#404040>[2].  This rule reactivates the old lady each turn, but after the spontaneous speaking rule above has already been tried.</font><p>
+</font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>Glass - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">Glass</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_8.html">Previous</a><br><a href="source_10.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 5 - Speech Acts</b>
+<br>
+<font color=#404040>[Yes, no, swearing, and saying sorry are accounted for in the basic library, and we should re-map these as well:</font>]
+<br>
+
+<br>
+Instead of asking someone to try swearing mildly: try swearing mildly.
+<br>
+
+<br>
+Instead of swearing mildly:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[A random visible woman] giggles faintly.</font>&quot;
+<br>
+
+<br>
+Understand &quot;<font color=#000080>shit</font>&quot; or &quot;<font color=#000080>fuck</font>&quot; or &quot;<font color=#000080>damn</font>&quot; or &quot;<font color=#000080>sod</font>&quot; as &quot;<font color=#000080>[obscenity]</font>&quot;. <font color=#404040><sup><a href="#note1">[1]</a></sup></font>
+<br>
+
+<br>
+Understand &quot;<font color=#000080>swear</font>&quot; or &quot;<font color=#000080>curse</font>&quot; or &quot;<font color=#000080>mention obscenities</font>&quot; as swearing obscenely.
+<br>
+
+<br>
+Understand &quot;<font color=#000080>bother</font>&quot; or &quot;<font color=#000080>curses</font>&quot; or &quot;<font color=#000080>drat</font>&quot; or &quot;<font color=#000080>darn</font>&quot; as &quot;<font color=#000080>[mild obscenity]</font>&quot;. 
+<br>
+Instead of swearing obscenely for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the player is disgraced;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You squawk very loudly.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'If that happens again,' says the old woman to you, 'we will sell you to the first man with an earring we can find.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Lucinda's cheeks go pink.</font>&quot;
+<br>
+
+<br>
+Swearing obscenely is speech. Swearing mildly is speech. Saying yes is speech. Saying no is speech. Saying sorry is speech.
+<br>
+
+<br>
+Instead of asking someone to try doing something:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if asking someone to try speech, continue the action;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>No one in this house obeys you at all.</font>&quot;
+<br>
+
+<br>
+Instead of asking someone to try swearing obscenely: try swearing obscenely.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of swearing obscenely:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Right,' says the old lady. And she rings for a servant to remove you from the room.</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end the game saying &quot;<font color=#000080>You are sold to pirates and have a glorious career on the open sea</font>&quot;.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+A person can be disgraced or approved. A person is usually approved.
+<br>
+
+<br>
+Bird trouble is a scene. Bird trouble begins when the player is disgraced. Bird trouble ends when time since bird trouble began is 2 minutes. When Bird trouble ends: now the player is approved.
+<br>
+
+<br>
+Instead of asking someone to try saying sorry: try saying sorry.
+<br>
+
+<br>
+Instead of answering someone that &quot;<font color=#000080>sorry</font>&quot;, try saying sorry.
+<br>
+
+<br>
+Instead of saying sorry:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'Oops!' you squawk. 'Sorry! Oops, sorry!'
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>[if player is disgraced]'Just mind your beak from now on, that's all,' says the old lady sternly. 'And stop interrupting.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Everyone turns back to the human conversation.[otherwise]They all ignore you.[end if]</font>&quot;
+<br>
+
+<br>
+Instead of asking someone to try saying yes: try saying yes. Instead of answering someone that &quot;<font color=#000080>yes</font>&quot;, try saying yes.
+<br>
+
+<br>
+Instead of saying yes:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'[awwk]! Yes!'</font>&quot;
+<br>
+
+<br>
+Instead of asking someone to try saying yes: try saying no. Instead of answering someone that &quot;<font color=#000080>no</font>&quot;, try saying no.
+<br>
+
+<br>
+Instead of saying no:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'No!' you squawk. 'No no!'
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>[The random visible person who is not the player] frowns in your direction.</font>&quot;
+<br>
+
+<br>
+<font color=#404040>[Now we've set up the conversation model; time to provide some actors.</font>]
+<br>
+
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp; 
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><p><i>Note</i><p>
+<A name="note1"><font color=#404040>[1].  We have more or less preserved Inform's default understanding of obscenity, though testers tried a range of other interesting words.</font><p>
+</font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

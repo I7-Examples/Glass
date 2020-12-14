@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>Glass - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">Glass</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_6.html">Previous</a><br><a href="source_8.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Section 3 - Handling Legitimate Remarks</b>
+<br>
+
+<br>
+<font color=#404040>[And now at last we define the &quot;mentioning&quot; action.</font>]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Mentioning is an action applying to one thing.
+<br>
+
+<br>
+Carry out mentioning:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'[awwk]!' you [exact verb]. '[The noun][if a random chance of 1 in 3 succeeds]! [The noun][end if]!'</font>&quot;; 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<font color=#404040>[The default behavior is to print the parrot's speech (in carry out, because this is one of those rare circumstances where the action involves generating some text -- just as examining prints the description in carry out). Then the non-player characters respond by trying to fit this outcry into the flow of their conversation. We make them silent at that point (&quot;now the old lady is passive&quot;) so that their regular flow of every-turn conversation will be interrupted to deal with your intrusion.</font>]
+<br>
+
+<br>
+Report mentioning:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;now the old lady is passive;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;relate the current subject with the noun, directly;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;change last subject to current subject;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;change the current subject to the noun.
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<font color=#404040>[We can also override this behavior by giving constant responses to specific remarks:</font>]
+<br>
+
+<br>
+Instead of mentioning blank: try squawking.
+<br>
+
+<br>
+Instead of mentioning God for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'God!' you exclaim. All eyes turn slowly towards you.
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'Heavens,' says the Prince mildly. 'A pet with theological leanings. How unusual. You're most fortunate in your domesticated animals, madam.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The old lady gives you a long, narrow-eyed look. Apparently she does not share the Prince's feelings on that topic.</font>&quot; 
+<br>
+
+<br>
+Instead of mentioning God for the third time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'God!' you [exact verb] again. 'Christ? Buddha? Zeus?'
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'Show-off,' Theodora mutters under her breath.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'That will be enough from you,' says the old lady, looking at you with eyes almost as beady as your own.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Carry out mentioning heirs when the current subject is king's health:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>'NEED BABIES,' you [exact verb]. 'Heirs to the kingdom, heirs to the kingdom!'</font>&quot; instead.
+<br>
+
+<br>
+After mentioning the King's Health for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The Prince glances your way and offers you a small, smiling salute.</font>&quot;
+<br>
+
+<br>
+After mentioning heirs for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>Blood rushes up into the Prince's cheeks. He doesn't look your way.</font>&quot;
+<br>
+
+<br>
+<font color=#404040>[And what happens if the player squawks something that the characters are already discussing?</font>]
+<br>
+
+<br>
+Report mentioning the current subject:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;repeat through Table of Bad Bird Excuses
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry][paragraph break]</font>&quot;;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blank out the whole row;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now the player is disgraced;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule succeeds;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end repeat.
+<br>
+
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+<b>Table of Bad Bird Excuses</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>response</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>'Don't mind our parrot,' says the lady, smiling at the Prince. 'It has very bad manners.' </td></tr>
+</font><font color=#000080></table>
+<br>
+</font><font color=#000080>The Prince glances at you. 'I imagine any manners at all would be above average for a bird.'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>Lucinda smirks.</font>&quot;
+<br>
+&quot;<font color=#000080>'It just repeats things it hears,' says Lucinda.</font>&quot;
+<br>
+&quot;<font color=#000080>'Ssh,' says Lucinda to you.</font>&quot;
+<br>
+&quot;<font color=#000080>'Honestly,' says Lucy. 
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'It was raised by sailors,' the old lady says.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>'Pirates,' Theodora embellishes. She likes pirates.
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The old lady kicks her ankle.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"></font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive">
+		<title>Glass - Source Text</title>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table border="0" cellpadding="2"><tr><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></font></td><td align="left" valign="top">
+					<h3><font color="#0000cc" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">Glass</font></h3>
+					<h3><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif">An interactive fiction by Emily Short (2006) - the Inform 7 source text</font></h3>
+				</td></tr>
+		<tr align="left" valign="top"><td align="left" valign="top"><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><a href="index.html">Home page</a><br><br><a href="source.html">Contents</a><br><a href="source_10.html">Previous</a><br><a href="source_12.html">Next</a><br><br><a href="source.txt">Complete text</a></font></td><td align="left" valign="top"><font face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><b>Chapter 4 - Your Behavior</b>
+<br>
+ 
+<br>
+<b>Section 1 - Looking and Waiting</b>
+<br>
+
+<br>
+<font color=#404040>[Because this game relies minimally on interaction with physical objects, the usual looking rules, and rules for movement, are modified to focus the player's attention on the flow of conversation. 
+<br>
+</font><font color=#404040>
+<br>
+</font><font color=#404040>In particular, we begin by overriding the default behavior that prints room descriptions at the outset of the game, and re-writing LOOK so that it doesn't actually give any information. 
+<br>
+</font><font color=#404040>
+<br>
+</font><font color=#404040>Since we're also changing the status bar, the player will never see the fact that we've labeled our location &quot;Stage&quot;.</font>]
+<br>
+
+<br>
+Procedural rule: ignore the room description heading rule.  Rule for printing the name of the Stage: do nothing.
+<br>
+
+<br>
+Instead of looking for the first time:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if turn count is 1
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;begin;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say paragraph break;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>The Prince sits awkwardly on the couch, holding his glass slipper and trying to keep it from crushing. Lucinda and Theodora have the ends of the same couch, and they are taking turns seeing who can bend lowest and show off the most cleavage; while the old lady, in her wing chair, carries on about nonsense. For instance:
+<br>
+</font><font color=#000080>&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</font><font color=#000080>'Do tell me about your father's health,' she says, leaning toward the Prince. 'Is he still ailing? Has the Spanish doctor been able to do anything for him?'
+<br>
+</font><font color=#000080>
+<br>
+</font><font color=#000080>The Prince looks uncomfortable: this line of reason leads directly to the problem of heirs. 'I believe so, madam,' he replies, with a bit of constraint.[line break]</font>&quot;; <font color=#404040><sup><a href="#note1">[1]</a></sup></font>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;end if.
+<br>
+
+<br>
+Instead of looking: 
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>You give the place a once-over with your right eye. Then you turn your head and look at everything through your left eye. It doesn't make any difference. The farther parts of the room remain out of focus.</font>&quot;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Instead of examining the player:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>It's hard to have a good look at the moment, but everything feels in order, properly preened, feathers lying as they ought.</font>&quot;
+<br>
+
+<br>
+Instead of waiting:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;choose a random row in the Table of Waiting;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;say &quot;<font color=#000080>[response entry][paragraph break]</font>&quot;.
+<br>
+
+<br>
+<b>Table of Waiting</b>
+<br>
+<table><tr><td halign="left" valign="top"><u>response</u></td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>You hold your peace.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>You shift your weight from claw to claw.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>You walk down to the other end of the perch.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>You turn your head and look at everyone out of the other eye, for a change.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>You stretch your useless wings and fold them again.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>You yawn.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>Outside on the street something rattles by.</font>&quot;</td></tr>
+<tr><td halign="left" valign="top">&quot;<font color=#000080>The floorboards creak overhead. No one looks up.</font>&quot;</td></tr>
+</table>
+<br>
+</font>
+					<p><font size="-1" face="Trebuchet MS, Geneva, Arial, Helvetica, SunSans-Regular, sans-serif"><p><i>Note</i><p>
+<A name="note1"><font color=#404040>[1].  This bit of conversation might conventionally have gone before the banner in a When play begins... passage; but since we have no room descriptions in this game, this would mean having a banner immediately followed by a command prompt. So I decided instead to go with a null prologue and put this bit of  chat after the banner but before the command prompt.</font><p>
+</font></p>
+					<p></p>
+				</td></tr></table>
+	</body>
+
+</html>
