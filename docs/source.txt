@@ -1,6 +1,6 @@
 "Glass" by Emily Short. 
 
-Include (- Serial "060503"; -).
+Include (- Serial "101025"; -).
 
 The story genre is "Fairy Tale". The story headline is "A fractured fairy tale". The story description is "The Prince sits awkwardly on the couch, holding his glass slipper and trying to keep it from crushing. Lucinda and Theodora have the ends of the same couch, and they are taking turns seeing who can bend lowest and show off the most cleavage; while the old lady, in her wing chair, carries on about nonsense...
 
@@ -8,7 +8,7 @@ Glass is a conversation-oriented fairy tale, taking place in one room. It was wr
 
 Features a variety of additional verbs, non-player characters with an agenda, and narrative with multiple endings." The story creation year is 2006.
 
-Release along with a solution, source text, a website, cover art, a file of "Walkthrough" called "Walkthrough.txt", a file of "Making of..." called "Overview.html".
+Release along with a solution, source text, a website, an interpreter, cover art, a file of "Walkthrough" called "Walkthrough.txt", a file of "Making of..." called "Overview.html".
 
 Use no scoring, the serial comma, and American dialect.
 
@@ -218,7 +218,7 @@ To say awwk:
 	choose a random row in the table of Awwkwardness;
 	say "[response entry]".
 
-Asking it about the subject is an action applying to two things.
+Asking it about the subject is an action applying to one thing and one visible thing.
 
 Carry out asking it about the subject: 
 	try mentioning the second noun.
@@ -227,7 +227,7 @@ Section 3 - Handling Legitimate Remarks
 
 [And now at last we define the "mentioning" action.]
 	
-Mentioning is an action applying to one thing.
+Mentioning is an action applying to one visible thing.
 
 Carry out mentioning:
 	say "'[awwk]!' you [exact verb]. '[The noun][if a random chance of 1 in 3 succeeds]! [The noun][end if]!'"; 
@@ -503,7 +503,7 @@ Instead of thinking:
 
 Instead of drinking: say "Sadly, no one has thought to provide you with your water dish."
 
-Instead of tieing something to something: say "An activity too complicated for you to manipulate yourself."
+Instead of tying something to something: say "An activity too complicated for you to manipulate yourself."
 
 Instead of sleeping: say "You have had a full eighteen hours of sleep, and are refreshed at the moment."
 
@@ -728,7 +728,7 @@ The Prince shakes his head, looking embarrassed again.
 
 There is a thick silence. The old lady frowns, suggesting very rapid and dangerous thought. Theodora lies back against the pillows, interested in the story and too stupid to realize it has to do with her. Lucinda-- but Lucinda's thoughts are always the hardest to read."
 
-Every turn: say conversation set; 
+[Every turn: say conversation set; ]
 
 
 Section 3 - About the Ball
