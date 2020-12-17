@@ -1,6 +1,7 @@
-"Glass" by Emily Short. 
+"Glass" by Emily Short
 
-Include (- Serial "101025"; -).
+Include (- Serial "201217"; -).
+The release number is 3.
 
 The story genre is "Fairy Tale". The story headline is "A fractured fairy tale". The story description is "The Prince sits awkwardly on the couch, holding his glass slipper and trying to keep it from crushing. Lucinda and Theodora have the ends of the same couch, and they are taking turns seeing who can bend lowest and show off the most cleavage; while the old lady, in her wing chair, carries on about nonsense...
 
@@ -8,9 +9,11 @@ Glass is a conversation-oriented fairy tale, taking place in one room. It was wr
 
 Features a variety of additional verbs, non-player characters with an agenda, and narrative with multiple endings." The story creation year is 2006.
 
-Release along with a solution, source text, a website, an interpreter, cover art, a file of "Walkthrough" called "Walkthrough.txt", a file of "Making of..." called "Overview.html".
+Release along with [a solution,] source text, a website, an interpreter, cover art, a file of "Walkthrough" called "Walkthrough.txt", a file of "Making of..." called "Overview.html".
 
-Use no scoring, the serial comma, and American dialect.
+Use the serial comma, and American dialect.
+
+Include Singing Reloaded by Shin. Include Swearing Reloaded by Shin.
 
 
 Chapter 1 - Mechanics of Speech
@@ -115,10 +118,10 @@ Every turn when the old lady is active:
 		if pause is not "blank", 
 			relate the current subject with the segue, pausing first;
 		otherwise relate the current subject with the segue, directly;
-		change last subject to current subject;
-		change current subject to segue;
+		now last subject is current subject;
+		now current subject is segue;
 	otherwise; 
-		change the current subject to last subject;
+		now the current subject is last subject;
 		if Fitting has happened
 		begin;
 			make no decision;
@@ -237,8 +240,8 @@ Carry out mentioning:
 Report mentioning:
 	now the old lady is passive;
 	relate the current subject with the noun, directly;
-		change last subject to current subject;
-	change the current subject to the noun.
+		now last subject is current subject;
+	now the current subject is the noun.
 	
 [We can also override this behavior by giving constant responses to specific remarks:]
 
@@ -373,8 +376,8 @@ Instead of asking someone to try swearing obscenely: try swearing obscenely.
 	
 Instead of swearing obscenely:
 	say "'Right,' says the old lady. And she rings for a servant to remove you from the room.";
-	end the game saying "You are sold to pirates and have a glorious career on the open sea".
-	
+	end the story saying "You are sold to pirates and have a glorious career on the open sea".
+
 A person can be disgraced or approved. A person is usually approved.
 
 Bird trouble is a scene. Bird trouble begins when the player is disgraced. Bird trouble ends when time since bird trouble began is 2 minutes. When Bird trouble ends: now the player is approved.
@@ -439,7 +442,7 @@ In particular, we begin by overriding the default behavior that prints room desc
 
 Since we're also changing the status bar, the player will never see the fact that we've labeled our location "Stage".]
 
-Procedural rule: ignore the room description heading rule.  Rule for printing the name of the Stage: do nothing.
+The room description heading rule is not listed in any rulebook.  Rule for printing the name of the Stage: do nothing.
 
 Instead of looking for the first time:
 	if turn count is 1
@@ -625,8 +628,8 @@ Section 1 - Scene Aesthetics
 Current action is some text that varies. The current action is "Idly".
 
 When play begins:
-	change the left hand status line to "[current action] discussing [the current subject]";
-	change the right hand status line to " ";
+	now the left hand status line is "[current action] discussing [the current subject]";
+	now the right hand status line is " ";
 
 Section 2 - Prologue
 [...In which we lead up to the subject of the Prince's having fallen in love.
@@ -734,7 +737,7 @@ There is a thick silence. The old lady frowns, suggesting very rapid and dangero
 Section 3 - About the Ball
 [In which we work toward the discovery that the beloved is -- or was -- under a spell.]
 
-Wondering is a scene. Wondering begins when Prologue ends. When Wondering begins: change conversation set to Table of Wondering Remarks; change the target subject to ball; change the current action to "Curiously".
+Wondering is a scene. Wondering begins when Prologue ends. When Wondering begins: now conversation set is Table of Wondering Remarks; now the target subject is ball; now the current action is "Curiously".
 
 Table of Wondering Remarks
 starting	final	comment 
@@ -798,7 +801,7 @@ Wondering ends when the current subject is the ball.
 Section 4 - Fitting
 [In which we work towards the idea that someone here should try the shoe (and for lack of a better idea, we will assume that person is Theo.)]
 
-Fitting is a scene. Fitting begins when Wondering ends. When Fitting begins: change conversation set to Table of Fitting Remarks; change the target subject to Theo; now marriage suggests Theo; change the current action to "Nervously".
+Fitting is a scene. Fitting begins when Wondering ends. When Fitting begins: now conversation set is Table of Fitting Remarks; now the target subject is Theo; now marriage suggests Theo; now the current action is "Nervously".
 
 Table of Fitting Remarks
 starting	final	comment 
@@ -884,8 +887,8 @@ Section 5 - Lucinda Being Tried
 Checking Lucinda is a scene. 
 
 Checking Lucinda begins when Prince unties boots. Fitting ends when Checking Lucinda begins. When Checking Lucinda begins: 
-		change left hand status line to "Trying the slipper on Lucinda";
-		change last subject to current subject; change the current subject to Lucinda; change the target subject to Lucinda; change the conversation set to Table of Lucinda Checking Remarks.
+		now left hand status line is "Trying the slipper on Lucinda";
+		now last subject is current subject; now the current subject is Lucinda; now the target subject is Lucinda; now the conversation set is Table of Lucinda Checking Remarks.
 
 Every turn during Checking Lucinda:
 	repeat through Table of Lucinda Checks
@@ -966,7 +969,7 @@ The old lady's jaw clenches, and you see a hint of the steel in her. Her closene
 'Thank Providence for that,' he says, snatching up the glass slipper. 
 
 You watch him go, and think of the third daughter, waiting, in her bedroom, with the door locked.";
-	end the game saying "The Prince departs in anger"
+	end the story saying "The Prince departs in anger"
 
 When Lucinda Endgame ends in Lucinda Marriage: 
 	say "The Prince gives a great sigh and puts his head down on Lucinda's lap. 'I was sure I wouldn't find you,' he says. 'It seemed impossible.'
@@ -974,15 +977,15 @@ When Lucinda Endgame ends in Lucinda Marriage:
 She exchanges a glance, over his head, with the old lady.
 
 'You have me now,' she says, and puts her hand on the back of his neck. He does not ask, perhaps because he does not dare, why she did not explain herself sooner. And so they sit for a long moment, while Theodora slips out of the room, and the old lady rings for brandy...";
-	end the game saying "Lucinda and the Prince are married".
+	end the story saying "Lucinda and the Prince are married".
 
 Section 6 - Theodora Being Tried
 
 Checking Theodora is a scene. 
 
 Checking Theodora begins when Prince unties Theo boots. Fitting ends when Checking Theodora begins. When Checking Theodora begins:
-		change left hand status line to "Trying the slipper on Theodora";
-		change last subject to current subject; change the current subject to Theo; change the target subject to Theo; change the conversation set to Table of Theodora Checking Remarks.
+		now left hand status line is "Trying the slipper on Theodora";
+		now last subject is current subject; now the current subject is Theo; now the target subject is Theo; now the conversation set is Table of Theodora Checking Remarks.
 
 Every turn during Checking Theodora:
 	repeat through Table of Theodora Checks
@@ -1064,7 +1067,7 @@ The Prince looks at you for a long moment, then turns to the old lady; who shrug
 He snorts. 'I thank you, I do not want to find my bride here. I imagine everyone under this roof is tainted with a little of the same venom.'
 
 'That is the truth,' Lucinda murmurs; but he is already going, going, gone.";
-	end the game saying "The Prince departs in anger"
+	end the story saying "The Prince departs in anger"
  
 
 When Theodora Endgame ends in Theodora Marriage: 
@@ -1075,7 +1078,7 @@ She blinks at him, then says, 'I hope you are not angry.'
 He laughs, and touches her cheek; and she kisses him.
 
 Lucinda bites her lip. 'Well,' says the old lady briskly, standing. 'How many unexpected turns life brings to us.' And she pulls the bellpull with unnecessary force.";
-	end the game saying "Theodora and the Prince are married".
+	end the story saying "Theodora and the Prince are married".
 	
 Every turn when Theodora Endgame is happening and the time since Theodora Endgame began is 1 minute:
 	say "There is an odd silence, as though no one is sure what to do or say now. But it will break momentarily."
@@ -1092,7 +1095,7 @@ Section 7 - Cinderella Being Tried
 Checking Cinderella is a scene. Cindy is a woman. The description of Cindy is "She has a curious pointed chin, and a mouth that is too narrow, but there is a captivating quality about her as well.". Understand "Cinderella" or "cinders" as Cindy. Fitting ends when Checking Cinderella begins. 
 
 Checking Cinderella begins when Cinderella gets mentioned. When Checking Cinderella begins:
-	change last subject to current subject; change the current subject to Cinderella; change the target subject to magic; change the conversation set to Table of Cinderella Checking Remarks;
+	now last subject is current subject; now the current subject is Cinderella; now the target subject is magic; now the conversation set is Table of Cinderella Checking Remarks;
 	move Cindy to location;
 	say "There is the crack of a summoning: and there she stands, in the doorway, the secret daughter, the enchantress.
 	
@@ -1124,7 +1127,7 @@ When Checking Cinderella ends in peace:
 The Prince's gaze lingers on Cinderella. She looks back at him, her chin tilted up. 'There are things my father need not know. Though I also would not lie to him about anything that I knew for certain.'
 
 'A commendable attitude,' says the old lady briskly. 'And now I am having a brandy. Would anyone else care for a nip?'";
-	end the game saying "Cinderella and the Prince are (eventually) wed".
+	end the story saying "Cinderella and the Prince are (eventually) wed".
 
 When Checking Cinderella ends in disaster: 
 	say "Cinderella puts it on, turning her ankle to watch the effect. The change sweeps up through her, making her taller, more perfect, almost inhumanly beautiful.
@@ -1144,7 +1147,7 @@ Cinderella backs away. 'I have no truck with devils,' she says. 'I was gifted or
 'But the law,' says the Prince.
 
 'You're an idiot,' says the old lady. 'You knew what you might find. If you loved her at all, you would not have come looking.'";
-	end the game saying "Cinderella is executed"
+	end the story saying "Cinderella is executed"
 
 Table of Cinderella Checking Remarks
 starting	final	comment
