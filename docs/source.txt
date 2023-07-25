@@ -1,7 +1,6 @@
 "Glass" by Emily Short
 
-Include (- Serial "201217"; -).
-The release number is 3.
+The release number is 4.
 
 The story genre is "Fairy Tale". The story headline is "A fractured fairy tale". The story description is "The Prince sits awkwardly on the couch, holding his glass slipper and trying to keep it from crushing. Lucinda and Theodora have the ends of the same couch, and they are taking turns seeing who can bend lowest and show off the most cleavage; while the old lady, in her wing chair, carries on about nonsense...
 
